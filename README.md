@@ -6,7 +6,7 @@ Une plateforme complète de surveillance SOC (Security Operations Center) déplo
 
 ---
 
-## 📋 Table des Matières
+##  Table des Matières
 
 - [Architecture](#-architecture)
 - [Stack Technologique](#-stack-technologique)
@@ -22,7 +22,7 @@ Une plateforme complète de surveillance SOC (Security Operations Center) déplo
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 <img width="1423" height="712" alt="Capture d&#39;écran 2026-02-01 001200" src="https://github.com/user-attachments/assets/23aeca29-a82f-4b10-a740-e4d8d6f4b81a" />
 ---
 
@@ -42,7 +42,7 @@ Une plateforme complète de surveillance SOC (Security Operations Center) déplo
 
 ---
 
-## ✅ Prérequis
+##  Prérequis
 
 - **Docker** : version 20.10 ou supérieure
 - **Docker Compose** : version 2+
@@ -51,11 +51,11 @@ Une plateforme complète de surveillance SOC (Security Operations Center) déplo
 
 ---
 
-## 🚀 Installation Rapide
+##  Installation Rapide
 
 ```bash
 # 1. Cloner le repository
-git clone https://github.com/VOTRE_USERNAME/soc-monitoring-platform.git
+git clone https://github.com/ahlaam04/soc-monitoring-platform.git
 cd soc-monitoring-platform
 
 # 2. Rendre les scripts exécutables
@@ -70,7 +70,7 @@ chmod +x scripts/*.sh
 
 ---
 
-## 📁 Structure du Projet
+##  Structure du Projet
 
 ```
 soc-monitoring-platform/
@@ -92,7 +92,7 @@ soc-monitoring-platform/
 ---
  
 
-## 🌐 Accès aux Services
+##  Accès aux Services
 
 | Service | URL | Identifiants |
 |---------|-----|--------------|
@@ -105,7 +105,7 @@ soc-monitoring-platform/
 
 ---
 
-## 🚨 Alertes Configurées (40+)
+## 🚨 Alertes Configurées 
 
 ### Infrastructure (6 alertes)
 | Alerte | Seuil | Sévérité |
@@ -156,7 +156,7 @@ soc-monitoring-platform/
 
 ---
 
-## 🧪 Tests & Simulations
+##  Tests & Simulations
 
 ```bash
 # Lancer le simulateur d'attaques
@@ -176,7 +176,7 @@ soc-monitoring-platform/
 
 ---
 
-## 📱 Configuration Slack
+##  Configuration Slack
 
 Pour recevoir les alertes sur Slack :
 
