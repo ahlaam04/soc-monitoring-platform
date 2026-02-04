@@ -1,0 +1,48 @@
+# ==========================================
+# GITIGNORE - SOC Monitoring Project
+# ==========================================
+
+# Environment variables
+.env
+
+# Logs
+*.log
+logs/
+attack_simulation_*.log
+
+# Docker volumes data
+prometheus-data/
+grafana-data/
+alertmanager-data/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Backups
+*.bak
+*.backup

@@ -1,0 +1,124 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  scrape_timeout: 10s
+  external_labels:
+    monitor: 'microservices-security-monitor'
+    environment: 'production'
+    project: 'juice-shop-monitoring'
+
+# Configuration Alertmanager
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - 'alertmanager:9093'
+      timeout: 10s
+      api_version: v2
+
+# Chargement des règles d'alertes
+
+# Configuration des jobs de scraping
+scrape_configs:
+  # ==========================================
+  # PROMETHEUS SELF-MONITORING
+  # ==========================================
+  - job_name: 'prometheus'
+    honor_labels: true
+    static_configs:
+      - targets: ['localhost:9090']
+        labels:
+          service: 'prometheus'
+          tier: 'monitoring'
+
+  # ==========================================
+  # NODE EXPORTER - Métriques Système
+  # ==========================================
+  - job_name: 'node-exporter'
+    scrape_interval: 10s
+    static_configs:
+      - targets: ['node-exporter:9100']
+        labels:
+          service: 'system-metrics'
+          tier: 'infrastructure'
+          hostname: 'monitoring-host'
+
+  # ==========================================
+  # CADVISOR - Métriques Containers
+  # ==========================================
+  - job_name: 'cadvisor'
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['cadvisor:8080']
+        labels:
+          service: 'container-metrics'
+          tier: 'infrastructure'
+
+  # ==========================================
+  # ALERTMANAGER
+  # ==========================================
+  - job_name: 'alertmanager'
+    static_configs:
+      - targets: ['alertmanager:9093']
+        labels:
+          service: 'alertmanager'
+          tier: 'monitoring'
+
+  # ==========================================
+  # JUICE SHOP APPLICATION
+  # ==========================================
+  - job_name: 'juice-shop'
+    scrape_interval: 10s
+    scrape_timeout: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['juice-shop:3000']
+        labels:
+          service: 'juice-shop'
+          tier: 'application'
+          app: 'vulnerable-webapp'
+          criticality: 'high'
+
+  # ==========================================
+  # BLACKBOX EXPORTER - HTTP Probing
+  # ==========================================
+  - job_name: 'blackbox-http'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+          - http://juice-shop:3000
+          - http://juice-shop:3000/rest/products/search?q=
+          - http://juice-shop:3000/rest/user/login
+        labels:
+          service: 'http-probe'
+          tier: 'monitoring'
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+
+  # ==========================================
+  # BLACKBOX EXPORTER - ICMP Ping
+  # ==========================================
+  - job_name: 'blackbox-icmp'
+    metrics_path: /probe
+    params:
+      module: [icmp]
+    static_configs:
+      - targets:
+          - juice-shop
+        labels:
+          service: 'icmp-probe'
+          tier: 'monitoring'
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
