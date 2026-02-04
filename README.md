@@ -48,7 +48,6 @@ Une plateforme complète de surveillance SOC (Security Operations Center) déplo
 - **Docker Compose** : version 2+
 - **RAM** : minimum 4 GB (8 GB recommandés)
 - **Disque** : minimum 10 GB
-- **Ports libres** : 3000, 3001, 8080, 9090, 9093, 9100, 9115
 
 ---
 
