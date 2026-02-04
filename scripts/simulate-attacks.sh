@@ -11,7 +11,7 @@ BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-TARGET="http://localhost:3000"
+TARGET="http://localhost:3001"
 LOG_FILE="attack_simulation_$(date +%Y%m%d_%H%M%S).log"
 
 echo -e "${RED}"
