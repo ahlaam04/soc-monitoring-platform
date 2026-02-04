@@ -65,7 +65,7 @@ chmod +x scripts/*.sh
 ./scripts/start.sh
 
 # 4. Attendre 15 secondes puis accéder à Grafana
-# http://localhost:3001 (admin/admin)
+# http://localhost:3002 (admin/admin)
 ```
 
 ---
