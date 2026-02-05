@@ -96,12 +96,12 @@ soc-monitoring-platform/
 
 | Service | URL | Identifiants |
 |---------|-----|--------------|
-| 🛒 **Juice Shop** | http://localhost:3001 | — |
-| 📊 **Grafana** | http://localhost:3002 | admin / admin |
-| 📈 **Prometheus** | http://localhost:9090 | — |
-| 🔔 **Alertmanager** | http://localhost:9093 | — |
-| 📦 **cAdvisor** | http://localhost:8080 | — |
-| 📡 **Node Exporter** | http://localhost:9100/metrics | — |
+|  **Juice Shop** | http://localhost:3001 | — |
+|  **Grafana** | http://localhost:3002 | admin / admin |
+|  **Prometheus** | http://localhost:9090 | — |
+|  **Alertmanager** | http://localhost:9093 | — |
+|  **cAdvisor** | http://localhost:8080 | — |
+|  **Node Exporter** | http://localhost:9100/metrics | — |
 
 ---
 
