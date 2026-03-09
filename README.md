@@ -107,21 +107,21 @@ soc-monitoring-platform/
 
 ## 🚨 Alertes Configurées 
 
-### Infrastructure (6 alertes)
+### Infrastructure 
 | Alerte | Seuil | Sévérité |
 |--------|-------|----------|
 | HighCPUUsage | CPU > 80% × 2min | ⚠️ Warning |
 | CriticalCPUUsage | CPU > 90% × 3min | 🔴 Critical |
 | CriticalMemoryUsage | RAM > 90% × 2min | 🔴 Critical |
 
-### Disponibilité (5 alertes)
+### Disponibilité
 | Alerte | Condition | Sévérité |
 |--------|-----------|----------|
 | ServiceDown | up == 0 × 1min | 🔴 Critical |
 | JuiceShopDown | Juice Shop down × 30s | 🔴 Critical |
 | HTTPProbeFailed | Probe échoué × 1min | 🔴 Critical |
 
-### Sécurité SOC (10 alertes)
+### Sécurité SOC 
 | Alerte | Ce qu'elle détecte | Sévérité |
 |--------|--------------------|----------|
 | UnusualNetworkTraffic | Trafic réseau > 50MB/s | ⚠️ Warning |
